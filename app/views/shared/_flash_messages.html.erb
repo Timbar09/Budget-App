@@ -1,0 +1,14 @@
+<div class="flash_messages">
+  <div class="container">
+    <% if notice && !alert.empty? %>
+      <p class="notice">
+        <%= notice %>
+      </p>
+    <% end %>
+    <% if alert && !notice.empty? %>
+      <p class="alert">
+        <%= alert %>
+      </p>
+    <% end %>
+  </div>
+</div>
