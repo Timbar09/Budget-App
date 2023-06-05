@@ -77,4 +77,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'rails-controller-testing'
 
+# Add authentication with Devise
 gem 'devise'
+
+# Add clean html with slim
+gem 'slim-rails'
