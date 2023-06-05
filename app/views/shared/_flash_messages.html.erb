@@ -1,11 +1,11 @@
 <div class="flash_messages">
   <div class="container">
-    <% if notice && !alert.empty? %>
+    <% if flash[:notice] && !flash[:alert] %>
       <p class="notice">
         <%= notice %>
       </p>
     <% end %>
-    <% if alert && !notice.empty? %>
+    <% if flash[:alert] && !flash[:notice] %>
       <p class="alert">
         <%= alert %>
       </p>
