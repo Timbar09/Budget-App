@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_many :transactions, dependent: :destroy
+  has_and_belongs_to_many :transactions
 end
