@@ -80,5 +80,8 @@ gem 'rails-controller-testing'
 # Add authentication with Devise
 gem 'devise'
 
+# Convert html files to slim
+gem 'html2slim'
+
 # Add clean html with slim
 gem 'slim-rails'
