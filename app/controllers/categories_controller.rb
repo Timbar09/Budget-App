@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.includes(:transactions).where(author: current_user)
+    @total = @categories.sum { |category| category.transactions.sum(:amount) }
   end
 
   def new
@@ -22,6 +23,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :Icon)
+    params.require(:category).permit(:name, :icon)
   end
 end
