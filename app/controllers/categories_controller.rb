@@ -1,7 +1,10 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.includes(:transactions).where(author: current_user)
-    @total = @categories.sum { |category| category.transactions.sum(:amount) }
+    @categories = Category.includes(:categories_transactions).where(author: current_user)
+    
+    @categories.each do |category|
+      category.total = category.categories_transactions.sum(&:amount)
+    end
   end
 
   def new

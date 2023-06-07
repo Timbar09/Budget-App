@@ -1,18 +1,16 @@
 class TransactionsController < ApplicationController
-  def index
-    @category = Category.find(params[:category_id])
+  before_action :set_category
 
-    @transactions = @category.transactions.order(created_at: :desc)
-    @total = @transactions.sum(:amount)
+  def index
+    @transactions = @category.categories_transactions.includes(:category).where(author: current_user)
+    @total = @category.total
   end
 
   def new
-    @category = Category.find(params[:category_id])
     @transaction = Transaction.new
   end
 
   def create
-    @category = Category.find(params[:category_id])
     @transaction = Transaction.new(transaction_params.merge(category: @category))
 
     if @transaction.save
@@ -25,6 +23,10 @@ class TransactionsController < ApplicationController
   end
 
   private
+
+  def set_category
+    @category = Category.find(params[:category_id])
+  end
 
   def transaction_params
     params.require(:transaction).permit(:name, :amount)

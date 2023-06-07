@@ -1,0 +1,28 @@
+<div class='category'>
+  <header class='header'>
+    <h1 class='title'>Categories</h1>
+  </header>
+
+  <ul class='category_list'>
+    <% @categories.each do |category| %>
+      <li class='category_item'>
+        <%= link_to category_transactions_path(category) do %>
+          <span class='category_grid'>
+            <div class='left'>
+              <%= image_tag category.icon, width: 50, height: 50 %>
+            </div>
+
+            <div class='right'>
+              <span class='category_name'><%= category.name %></span>
+              <span class='category_total'><%= number_to_currency(category.total) %></span>
+            </div>
+          </span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class='actions'>
+    <%= link_to 'New Category', new_category_path %>
+  </div>
+</div>
