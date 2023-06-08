@@ -1,5 +1,45 @@
 require 'rails_helper'
 
 RSpec.describe Expense, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'creation' do
+    before :each do
+      @cr7 = User.create(name: 'Cristiano', email: 'cr7@goat.baller', password: 'password')
+      @category = Category.create(name: 'Football', author: @cr7)
+      @expense = Expense.create(name: 'Mercurial Vapor', amount: 200, author: @cr7)
+    end
+
+    it "can be created" do
+      expect(@expense).to be_valid
+    end
+
+    it "cannot be created without a name" do
+      @expense.name = nil
+      expect(@expense).to_not be_valid
+    end
+
+    it "cannot be created without an amount" do
+      @expense.amount = nil
+      expect(@expense).to_not be_valid
+    end
+
+    it "cannot be created with an amount less than 0" do
+      @expense.amount = -1
+      expect(@expense).to_not be_valid
+    end
+
+    it "cannot be created without an author" do
+      @expense.author = nil
+      expect(@expense).to_not be_valid
+    end
+
+    it "cannot be created with a name less than 2 characters" do
+      @expense.name = 'a'
+      expect(@expense).to_not be_valid
+    end
+
+    it "cannot be created with a name more than 20 characters" do
+      @expense.name = 'a' * 21
+      expect(@expense).to_not be_valid
+    end
+  end
 end
