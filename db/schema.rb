@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_131033) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_08_064533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,22 +51,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_131033) do
     t.index ["author_id"], name: "index_categories_on_author_id"
   end
 
-  create_table "categories_transactions", id: false, force: :cascade do |t|
+  create_table "category_expenses", force: :cascade do |t|
     t.bigint "category_id", null: false
-    t.bigint "transaction_id", null: false
-    t.index ["category_id", "transaction_id"], name: "index_categories_transactions_on_category_id_and_transaction_id"
-    t.index ["transaction_id", "category_id"], name: "index_categories_transactions_on_transaction_id_and_category_id"
+    t.bigint "expense_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_expenses_on_category_id"
+    t.index ["expense_id"], name: "index_category_expenses_on_expense_id"
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "expenses", force: :cascade do |t|
     t.bigint "author_id", null: false
-    t.bigint "category_id", null: false
     t.string "name"
     t.decimal "amount", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_transactions_on_author_id"
-    t.index ["category_id"], name: "index_transactions_on_category_id"
+    t.index ["author_id"], name: "index_expenses_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -85,6 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_131033) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "users", column: "author_id"
-  add_foreign_key "transactions", "categories"
-  add_foreign_key "transactions", "users", column: "author_id"
+  add_foreign_key "category_expenses", "categories"
+  add_foreign_key "category_expenses", "expenses"
+  add_foreign_key "expenses", "users", column: "author_id"
 end

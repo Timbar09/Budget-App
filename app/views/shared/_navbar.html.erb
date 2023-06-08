@@ -5,7 +5,7 @@
         <% if controller_name != 'categories' %>
           <li><%= link_to 'Back', :back %></li>
         <% else %>
-          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Money Trail', root_path %></li>
         <% end %>
         <li><%= controller_name.capitalize %></li>
         <li><%= button_to 'log out', destroy_user_session_path, method: :delete %></li>

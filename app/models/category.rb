@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_and_belongs_to_many :categories_transactions, class_name: 'Transaction'
+  has_many :category_expense, dependent: :destroy
+  has_many :expenses, through: :category_expense
 
   attr_accessor :total
   

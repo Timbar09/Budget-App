@@ -6,7 +6,7 @@
   <ul class='category_list'>
     <% @categories.each do |category| %>
       <li class='category_item'>
-        <%= link_to category_transactions_path(category) do %>
+        <%= link_to category_expenses_path(category) do %>
           <span class='category_grid'>
             <div class='left'>
               <%= image_tag category.icon, width: 50, height: 50 %>

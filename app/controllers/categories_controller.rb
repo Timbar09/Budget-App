@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.includes(:categories_transactions).where(author: current_user)
-    
+    @categories = Category.includes(:author).where(author: current_user).order(created_at: :desc)
+
     @categories.each do |category|
-      category.total = category.categories_transactions.sum(&:amount)
+      category.total = category.expenses.sum(:amount)
     end
   end
 
@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params.merge(author: current_user))
+    @category = Category.new(category_params)
 
     if @category.save
       flash[:notice] = 'Category was successfully created.'
@@ -26,6 +26,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :icon)
+    params.require(:category).permit(:name, :icon).merge(author: current_user)
   end
 end
