@@ -104,6 +104,8 @@ GEM
     diff-lcs (1.5.0)
     erubi (1.12.0)
     ffi (1.15.5)
+    font-awesome-sass (6.4.0)
+      sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hpricot (0.8.6)
@@ -305,6 +307,7 @@ DEPENDENCIES
   database_cleaner
   debug
   devise
+  font-awesome-sass (~> 6.4.0)
   html2slim
   image_processing (~> 1.2)
   importmap-rails

@@ -10,8 +10,9 @@ html {
 }
 
 :root {
-  --clr-red: rgb(194, 31, 31);
-  --clr-light-red: rgba(197, 43, 43, 0.671);
+  --clr-tomato: rgb(255, 99, 71);
+  --clr-tomato-light: rgb(235, 123, 103);
+  --clr-very-light-tomato: rgb(231, 181, 172);
   --clr-green: rgb(15, 176, 50);
   --clr-black: rgb(0, 0, 0);
   --clr-very-dark: rgb(15, 15, 15);
@@ -35,4 +36,13 @@ body {
   max-width: 26em;
   margin: 0 auto;
   border: solid 1px var(--clr-light-grey);
+}
+
+.main {
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

@@ -85,3 +85,6 @@ gem 'html2slim'
 
 # Add clean html with slim
 gem 'slim-rails'
+
+# Add icons with font-awesome
+gem "font-awesome-sass", "~> 6.4.0"

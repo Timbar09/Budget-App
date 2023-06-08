@@ -1,0 +1,31 @@
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
+.btn-signin {
+  background-color: var(--clr-tomato);
+  color: var(--clr-very-light);
+  box-shadow: 0 0.45rem 0.75rem rgba(0, 0, 0, 0.25);
+  opacity: 0.8;
+  transition: all 150ms ease-in-out;
+}
+
+.btn-signin:hover {
+  opacity: 0.9;
+  translate: 0 -0.25rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.btn-signin:active {
+  opacity: 1;
+  translate: 0 -0.15rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.btn-signup:hover {
+  text-decoration: underline;
+  color: var(--clr-tomato);
+}
