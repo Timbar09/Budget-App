@@ -17,7 +17,7 @@
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <%= form.number_field :amount %>
   </div>
 
   <div class="field">
@@ -26,6 +26,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit 'Create Transaction' %>
+    <%= form.submit 'Create Transaction', class: "btn btn-primary" %>
   </div>
 <% end %>
