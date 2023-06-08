@@ -1,0 +1,18 @@
+<div class='transacton'>
+  <header class='header'>
+    <h1 class='title'>Expense name</h1>
+  </header>
+
+  <ul class='transaction_list'>
+    <% @expenses.each do |expense| %>
+      <li class='transaction_item'>
+        <span class='transaction_name'><%= expense.name %></span>
+        <span class='transaction_amount'><%= number_to_currency(expense.amount) %></span>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class='actions'>
+    <%= link_to 'New Expense', new_category_expense_path(@category), class: 'button' %>
+  </div>
+</div>

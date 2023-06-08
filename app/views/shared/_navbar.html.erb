@@ -2,10 +2,10 @@
   <nav class='nav'>
     <div class='container'>
       <ul class='nav_links'>
-        <% if controller_name != 'categories' %>
-          <li><%= link_to 'Back', :back %></li>
-        <% else %>
+        <% if controller_name == 'categories' %>
           <li><%= link_to 'Money Trail', root_path %></li>
+        <% else %>
+          <li><%= link_to 'Categories', categories_path %></li>
         <% end %>
         <li><%= controller_name.capitalize %></li>
         <li><%= button_to 'log out', destroy_user_session_path, method: :delete %></li>
