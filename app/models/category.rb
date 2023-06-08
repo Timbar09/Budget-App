@@ -6,4 +6,7 @@ class Category < ApplicationRecord
   attr_accessor :total
   
   has_one_attached :icon
+
+  validates :name, presence: true
+  validates :name, length: { minimum: 2, maximum: 20 }
 end
