@@ -48,6 +48,19 @@ body {
   }
 }
 
+.flash_messages {
+  .container {
+    padding: 0.5rem;
+    border-right: solid 1px var(--clr-light-grey);
+    border-left: solid 1px var(--clr-light-grey);
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
 h1,
 h2,
 h3 {

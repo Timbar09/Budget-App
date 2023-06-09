@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
   before_action :set_category
 
   def index
-    @expenses = @category.expenses.order(created_at: :desc)
+    @expenses = @category.expenses.includes(:categories).order(:created_at => :desc)
 
     @total = @expenses.sum(:amount)
   end
