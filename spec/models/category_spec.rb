@@ -7,21 +7,21 @@ RSpec.describe Category, type: :model do
       @category = Category.create(name: 'Sports', author: @cr7)
     end
 
-    it "can be created" do
+    it 'can be created' do
       expect(@category).to be_valid
     end
 
-    it "cannot be created without a name" do
+    it 'cannot be created without a name' do
       @category.name = nil
       expect(@category).to_not be_valid
     end
 
-    it "cannot be created with a name less than 2 characters" do
+    it 'cannot be created with a name less than 2 characters' do
       @category.name = 'a'
       expect(@category).to_not be_valid
     end
 
-    it "cannot be created with a name more than 20 characters" do
+    it 'cannot be created with a name more than 20 characters' do
       @category.name = 'a' * 21
       expect(@category).to_not be_valid
     end

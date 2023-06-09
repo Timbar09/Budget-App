@@ -1,3 +1,7 @@
+.expense_item-grid {
+  pointer-events: none;
+}
+
 .category,
 .expense {
   background-color: var(--clr-light);

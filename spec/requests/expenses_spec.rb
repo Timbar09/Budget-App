@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Expenses", type: :request do
-  describe "GET /expenses" do
+RSpec.describe 'Expenses', type: :request do
+  describe 'GET /expenses' do
     before :each do
       @cr7 = User.create(name: 'Cristiano', email: 'cr7@goat,baller', password: 'password')
       sign_in @cr7
@@ -17,20 +17,20 @@ RSpec.describe "Expenses", type: :request do
       @sports.expenses.create(name: 'Long Sleeve Jersey', amount: 100, author: @cr7)
     end
 
-    it "returns http success" do
+    it 'returns http success' do
       get category_expenses_path(@sports)
 
       expect(response).to have_http_status(:success)
     end
 
-    it "lists all expenses belonging to a category" do
+    it 'lists all expenses belonging to a category' do
       get category_expenses_path(@sports)
 
       expect(response.body).to include(@sports.expenses.first.name)
       expect(response.body).to include(@sports.expenses.last.name)
     end
 
-    it "lists all expenses belonging to a user" do
+    it 'lists all expenses belonging to a user' do
       get category_expenses_path(@sports)
 
       expect(response.body).to include(@sports.expenses.first.name)

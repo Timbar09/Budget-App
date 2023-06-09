@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :categories
   has_many :expenses
-  
+
   validates :name, presence: true
   validates :name, length: { minimum: 2, maximum: 20 }
 end

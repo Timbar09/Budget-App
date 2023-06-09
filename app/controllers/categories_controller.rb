@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.includes(:expenses).where(author: current_user).order(:created_at => :desc)
+    @categories = Category.includes(:expenses).where(author: current_user).order(created_at: :desc)
 
     @categories.each do |category|
       category.total = category.expenses.sum(:amount)
     end
 
-    @total = @categories.sum { |category| category.total }
+    @total = @categories.sum(&:total)
   end
 
   def new

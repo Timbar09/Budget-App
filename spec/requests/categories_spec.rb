@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Categories", type: :request do
-  describe "GET /index" do
+RSpec.describe 'Categories', type: :request do
+  describe 'GET /index' do
     before :each do
       @cr7 = User.create(name: 'Cristiano', email: 'cr7@goat.baller', password: 'password')
       sign_in @cr7
@@ -14,21 +14,20 @@ RSpec.describe "Categories", type: :request do
       file = fixture_file_upload(image_path, 'image/jpg')
       @sports.icon.attach(io: File.open(file.path), filename: 'category_icon.jpg')
       @modeling.icon.attach(io: File.open(file.path), filename: 'category_icon.jpg')
-
     end
 
-    it "returns http success" do
+    it 'returns http success' do
       get '/categories'
       expect(response).to have_http_status(:success)
     end
 
-    it "lists all categories" do
+    it 'lists all categories' do
       get '/categories'
       expect(response.body).to include(@sports.name)
       expect(response.body).to include(@modeling.name)
     end
 
-    it "lists all categories belonging to a user" do
+    it 'lists all categories belonging to a user' do
       get '/categories'
       expect(response.body).to include(@sports.name)
       expect(response.body).to include(@modeling.name)
