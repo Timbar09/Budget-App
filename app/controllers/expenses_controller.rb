@@ -3,6 +3,8 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = @category.expenses.order(created_at: :desc)
+
+    @total = @expenses.sum(:amount)
   end
 
   def new

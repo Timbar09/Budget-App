@@ -11,7 +11,7 @@ html {
 
 :root {
   --clr-tomato: rgb(255, 99, 71);
-  --clr-tomato-light: rgb(235, 123, 103);
+  --clr-light-tomato: rgb(235, 123, 103);
   --clr-very-light-tomato: rgb(231, 181, 172);
   --clr-green: rgb(15, 176, 50);
   --clr-black: rgb(0, 0, 0);
@@ -20,6 +20,7 @@ html {
   --clr-dark-grey: rgb(101, 101, 101);
   --clr-grey: rgb(182, 182, 182);
   --clr-light-grey: rgb(231, 231, 231);
+  --clr-light: rgb(244, 244, 244);
   --clr-very-light: rgb(250, 250, 250);
   --clr-white: rgb(255, 255, 255);
 }
@@ -35,11 +36,23 @@ body {
 .container {
   max-width: 26em;
   margin: 0 auto;
-  border: solid 1px var(--clr-light-grey);
 }
 
 .main {
-  height: 100vh;
+  height: 95vh;
+
+  .container {
+    border-right: solid 1px var(--clr-light-grey);
+    border-left: solid 1px var(--clr-light-grey);
+    height: 100%;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
 }
 
 ul {

@@ -5,6 +5,8 @@ class CategoriesController < ApplicationController
     @categories.each do |category|
       category.total = category.expenses.sum(:amount)
     end
+
+    @total = @categories.sum { |category| category.total }
   end
 
   def new
