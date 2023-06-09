@@ -1,17 +1,20 @@
 class ExpensesController < ApplicationController
-  before_action :set_category
-
   def index
+    @category = Category.find(params[:category_id])
+
     @expenses = @category.expenses.includes(:categories).order(:created_at => :desc)
 
     @total = @expenses.sum(:amount)
   end
 
   def new
+    @category = Category.find(params[:category_id])
     @expense = Expense.new
   end
 
   def create
+    category_id = params[:expense][:category_id]
+    @category = Category.find(category_id)
     @expense = @category.expenses.new(expense_params)
 
     if @expense.save
@@ -24,10 +27,6 @@ class ExpensesController < ApplicationController
   end
 
   private
-
-  def set_category
-    @category = Category.find(params[:category_id])
-  end
 
   def expense_params
     params.require(:expense).permit(:name, :amount).merge(author: current_user)

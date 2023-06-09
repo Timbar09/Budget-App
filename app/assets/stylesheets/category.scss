@@ -20,6 +20,8 @@
 
   &_list {
     padding: 0.5rem;
+    flex: 1;
+    overflow-y: auto;
 
     li {
       margin-bottom: 1rem;
@@ -64,9 +66,5 @@
   &_date {
     font-size: 0.75rem;
     color: var(--clr-dark-grey);
-  }
-
-  .actions {
-    margin-top: auto;
   }
 }
