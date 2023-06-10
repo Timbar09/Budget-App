@@ -153,7 +153,9 @@ If you like this project, give it a ⭐️ and let me know what you like in part
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank the microverse community for the useful content
+I would like to thank the microverse community for the useful content.
+
+I would also like to thank [Gregoire Vella](https://www.behance.net/gregoirevella) for the project [design](https://creativecommons.org/licenses/by-nc/4.0/) template.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
