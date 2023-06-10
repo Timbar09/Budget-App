@@ -1,0 +1,27 @@
+<div class='expense'>
+  <header class='header'>
+    <h1><%= @category.name %></h1>
+    <span class='total'><%= number_to_currency(@total) %></span>
+  </header>
+
+  <ul class='expense_list'>
+    <% @expenses.each do |expense| %>
+      <li class='expense_item'>
+        <div class='expense_item-grid'>
+          <div class='right'>
+            <div>
+              <span class='expense_name'><%= expense.name %></span>
+              <span class='expense_amount'><%= number_to_currency(expense.amount) %></span>
+            </div>
+
+            <span class='expense_date'><%= expense.created_at.strftime('%b %d, %Y') %></span>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class='actions'>
+    <%= link_to 'New Expense', new_category_expense_path(@category), class: 'btn btn-primary' %>
+  </div>
+</div>

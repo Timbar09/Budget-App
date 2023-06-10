@@ -1,0 +1,45 @@
+form {
+  h2 {
+    margin: 0 0 1rem;
+    padding: 1rem 0.5rem;
+    background-color: var(--clr-tomato);
+    color: var(--clr-very-light);
+  }
+
+  .field {
+    margin-bottom: 0.5rem;
+    padding: 0 0.5rem;
+
+    label {
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      &:not([type='checkbox']) {
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0.75rem;
+        border: solid 1px var(--clr-light-grey);
+        border-radius: 0.25rem;
+        font-size: 1em;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.form-links {
+  text-align: center;
+
+  a {
+    display: inline-block;
+    margin-bottom: 1rem;
+
+    &:hover {
+      color: var(--clr-tomato);
+      text-decoration: underline;
+    }
+  }
+}

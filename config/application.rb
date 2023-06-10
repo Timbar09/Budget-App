@@ -33,5 +33,8 @@ module BudgetApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Use slim as the template engine
+    config.generators.template_engine = :slim
   end
 end

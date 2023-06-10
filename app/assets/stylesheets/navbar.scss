@@ -1,0 +1,34 @@
+.nav {
+  color: var(--clr-very-light);
+
+  .container {
+    background-color: var(--clr-tomato);
+    border-left: 1px solid var(--clr-light-grey);
+    border-right: 1px solid var(--clr-light-grey);
+  }
+
+  &_links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.5rem;
+
+    li {
+      i {
+        text-align: center;
+      }
+
+      a,
+      button {
+        border: none;
+        background-color: transparent;
+        color: inherit;
+        font-size: 1.25rem;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

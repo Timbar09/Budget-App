@@ -1,0 +1,27 @@
+<% if signed_in? %>
+  <nav class='nav'>
+    <div class='container'>
+      <ul class='nav_links'>
+        <% if controller_name == 'categories' %>
+          <li>
+            <%= link_to do %>
+              <i class="fa-solid fa-home"></i>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to root_path, title: 'Go back' do %>
+              <i class="fa-solid fa-angle-left"></i>
+            <% end %>
+          </li>
+        <% end %>
+        <li><%= controller_name.upcase %></li>
+        <li>
+          <%= button_to destroy_user_session_path, method: :delete, title: 'Sign Out' do %>
+            <i class="fa-solid fa-sign-out"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<% end %>
